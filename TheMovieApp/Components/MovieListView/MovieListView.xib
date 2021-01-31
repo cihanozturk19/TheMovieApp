@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListView" customModule="TheMovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="movieFavorite" destination="R5b-o6-emt" id="6Mx-33-1n1"/>
+                <outlet property="movieImage" destination="P99-Z9-Spb" id="Oth-DA-3YH"/>
+                <outlet property="movieTitle" destination="TAk-SI-Mhp" id="R3l-MQ-VIl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wOS-a1-Tzh">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P99-Z9-Spb">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="101"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star2" translatesAutoresizingMaskIntoConstraints="NO" id="R5b-o6-emt">
+                    <rect key="frame" x="269" y="28" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCF-N8-tiA">
+                    <rect key="frame" x="0.0" y="101" width="100" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="TAk-SI-Mhp">
+                            <rect key="frame" x="5" y="0.0" width="90" height="49"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TAk-SI-Mhp" firstAttribute="leading" secondItem="aCF-N8-tiA" secondAttribute="leading" constant="5" id="98U-EX-3dj"/>
+                        <constraint firstItem="TAk-SI-Mhp" firstAttribute="top" secondItem="aCF-N8-tiA" secondAttribute="top" id="GAk-ud-2RB"/>
+                        <constraint firstAttribute="trailing" secondItem="TAk-SI-Mhp" secondAttribute="trailing" constant="5" id="NAz-MF-wBb"/>
+                        <constraint firstAttribute="height" constant="49" id="j8g-he-AOO"/>
+                        <constraint firstAttribute="bottom" secondItem="TAk-SI-Mhp" secondAttribute="bottom" id="mmm-OY-UW9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="aCF-N8-tiA" firstAttribute="top" secondItem="P99-Z9-Spb" secondAttribute="bottom" id="6iT-QM-nlt"/>
+                <constraint firstItem="P99-Z9-Spb" firstAttribute="leading" secondItem="ohf-Iq-yzU" secondAttribute="leading" id="9TC-an-C8H"/>
+                <constraint firstItem="P99-Z9-Spb" firstAttribute="trailing" secondItem="ohf-Iq-yzU" secondAttribute="trailing" id="Bcj-Ay-JDg"/>
+                <constraint firstItem="P99-Z9-Spb" firstAttribute="top" secondItem="wOS-a1-Tzh" secondAttribute="top" id="Byl-zG-ai5"/>
+                <constraint firstItem="aCF-N8-tiA" firstAttribute="trailing" secondItem="ohf-Iq-yzU" secondAttribute="trailing" id="QCi-Sl-8X8"/>
+                <constraint firstItem="aCF-N8-tiA" firstAttribute="leading" secondItem="ohf-Iq-yzU" secondAttribute="leading" id="Zkw-iL-5Gr"/>
+                <constraint firstItem="aCF-N8-tiA" firstAttribute="bottom" secondItem="ohf-Iq-yzU" secondAttribute="bottom" id="sKC-ac-jHz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="ohf-Iq-yzU"/>
+            <point key="canvasLocation" x="-105.07246376811595" y="140.625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star2" width="96" height="96"/>
+    </resources>
+</document>
