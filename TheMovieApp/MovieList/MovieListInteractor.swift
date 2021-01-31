@@ -23,7 +23,6 @@ protocol MovieListDataStore {
 
 final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     var presenter: MovieListPresentationLogic?
-    var worker: MovieListWorker?
     var response: MovieList.PopularMovies.Response?
     var movieID: String?
 

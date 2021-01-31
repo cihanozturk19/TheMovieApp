@@ -22,7 +22,6 @@ protocol MovieDetailDataStore {
 
 final class MovieDetailInteractor: MovieDetailBusinessLogic, MovieDetailDataStore {
     var presenter: MovieDetailPresentationLogic?
-    var worker: MovieDetailWorker?
     var movieID: String?
     
     func getDetail() {
