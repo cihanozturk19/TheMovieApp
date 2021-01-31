@@ -12,29 +12,30 @@
 
 import UIKit
 
-protocol MoviewDetailBusinessLogic {
+protocol MovieDetailBusinessLogic {
     func getDetail()
 }
 
-protocol MoviewDetailDataStore {
+protocol MovieDetailDataStore {
     var movieID: String? { get set }
 }
 
-final class MoviewDetailInteractor: MoviewDetailBusinessLogic, MoviewDetailDataStore {
-    var presenter: MoviewDetailPresentationLogic?
-    var worker: MoviewDetailWorker?
+final class MovieDetailInteractor: MovieDetailBusinessLogic, MovieDetailDataStore {
+    var presenter: MovieDetailPresentationLogic?
+    var worker: MovieDetailWorker?
     var movieID: String?
     
     func getDetail() {
-        let request = MoviewDetail.Request(requestURL: RequestURL.MovieList.popularMovies.url + page)
+        let request = MovieDetail.Request(requestURL:
+            RequestURL.MovieDetail.detail.url.replacingOccurrences(of: "#",
+                                                                   with: movieID ?? ""))
 
-        ServiceAPI.shared.callService(request: request, response: MoviewDetail.Response) { (result) in
+        ServiceAPI.shared.callService(request: request, response: MovieDetail.Response.self) { (result) in
             
             switch result {
             case .success(let response):
-                self.presenter?.presentPopularMovies(response: response)
+                self.presenter?.presentDetail(response: response)
                 print(response)
-                print("totalPages:",response.total_pages ?? "nil")
             case .failure(let error):
                 print("the error \(error)")
             }

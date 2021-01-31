@@ -1,5 +1,5 @@
 //
-//  MoviewDetailModels.swift
+//  MovieDetailModels.swift
 //  TheMovieApp
 //
 //  Created by CİHAN ÖZTÜRK on 29.01.2021.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum MoviewDetail
+enum MovieDetail
 {
     // MARK: Use cases
     

@@ -12,17 +12,17 @@
 
 import UIKit
 
-@objc protocol MoviewDetailRoutingLogic
+@objc protocol MovieDetailRoutingLogic
 {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol MoviewDetailDataPassing
+protocol MovieDetailDataPassing
 {
   var dataStore: MoviewDetailDataStore? { get }
 }
 
-class MoviewDetailRouter: NSObject, MoviewDetailRoutingLogic, MoviewDetailDataPassing
+class MovieDetailRouter: NSObject, MovieDetailRoutingLogic, MovieDetailDataPassing
 {
   weak var viewController: MoviewDetailViewController?
   var dataStore: MoviewDetailDataStore?

@@ -35,7 +35,6 @@ enum RequestURL {
     }
     
     enum MovieDetail: String {
-        //https://api.themoviedb.org/3/movie/775996?language=en-US&api_key=fd2b04342048fa2d5f728561866ad52a
         case detail = "movie/#?"
         
         var url: String {

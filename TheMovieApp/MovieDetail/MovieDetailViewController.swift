@@ -12,14 +12,14 @@
 
 import UIKit
 
-protocol MoviewDetailDisplayLogic: class{
-    func displayDetail(viewModel: MoviewDetail.ViewModel)
+protocol MovieDetailDisplayLogic: class{
+    func displayDetail(viewModel: MovieDetail.ViewModel)
 }
 
-final class MoviewDetailViewController: UIViewController, MoviewDetailDisplayLogic {
+final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic {
     
     var interactor: MoviewDetailBusinessLogic?
-    var router: (NSObjectProtocol & MoviewDetailRoutingLogic & MoviewDetailDataPassing)?
+    var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
     
     // MARK: Object lifecycle
     
@@ -37,9 +37,9 @@ final class MoviewDetailViewController: UIViewController, MoviewDetailDisplayLog
     
     private func setup() {
         let viewController = self
-        let interactor = MoviewDetailInteractor()
-        let presenter = MoviewDetailPresenter()
-        let router = MoviewDetailRouter()
+        let interactor = MovieDetailInteractor()
+        let presenter = MovieDetailPresenter()
+        let router = MovieDetailRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -52,20 +52,12 @@ final class MoviewDetailViewController: UIViewController, MoviewDetailDisplayLog
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        interactor?.getDetail()
     }
     
-    // MARK: Do something
+    // MARK: Display
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething()
-    {
-        let request = MoviewDetail.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    func displayDetail(viewModel: MoviewDetail.ViewModel) {
-        <#code#>
+    func displayDetail(viewModel: MovieDetail.ViewModel) {
+        
     }
 }
