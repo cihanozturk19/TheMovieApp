@@ -35,7 +35,7 @@ enum RequestURL {
     }
     
     enum MovieDetail: String {
-        case detail = "movie/#?"
+        case detail = "/movie/#?"
         
         var url: String {
             return Base.baseURL.url + self.rawValue +

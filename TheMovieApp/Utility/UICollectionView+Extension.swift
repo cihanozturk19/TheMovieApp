@@ -9,14 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ReuseIdentifying {
-    static var reuseIdentifier: String { get }
-}
-extension ReuseIdentifying {
-    static var reuseIdentifier: String {
-        return String(describing: Self.self)
-    }
-}
+
 extension UICollectionView {
     func register<T: ReuseIdentifying> (cell:T.Type) where T: UICollectionViewCell {
         let bundle = Bundle(for: T.self)

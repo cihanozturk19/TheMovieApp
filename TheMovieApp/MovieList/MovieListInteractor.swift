@@ -14,19 +14,19 @@ import UIKit
 
 protocol MovieListBusinessLogic {
     func getPopularMovies(page: String)
+    func didSelectItem(indexPath: IndexPath)
 }
 
 protocol MovieListDataStore {
-    //var name: String { get set }
+    var movieID: String? { get set }
 }
 
 final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     var presenter: MovieListPresentationLogic?
     var worker: MovieListWorker?
-    //var name: String = ""
-    
-    // MARK: Do something
-    
+    var response: MovieList.PopularMovies.Response?
+    var movieID: String?
+
     func getPopularMovies(page: String) {
         
         let request = MovieList.PopularMovies.Request(requestURL: RequestURL.MovieList.popularMovies.url + page)
@@ -34,6 +34,7 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
             
             switch result {
             case .success(let response):
+                self.response = response
                 self.presenter?.presentPopularMovies(response: response)
                 print(response)
                 print("totalPages:",response.total_pages ?? "nil")
@@ -41,5 +42,17 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
                 print("the error \(error)")
             }
         }
+    }
+    
+    func didSelectItem(indexPath: IndexPath) {
+        guard let results = response?.results else {
+            return
+        }
+        let item = results[indexPath.row]
+        
+        if let movieID = item.id{
+            self.movieID = String(movieID)
+        }
+        presenter?.presentDetail()
     }
 }

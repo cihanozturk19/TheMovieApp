@@ -14,6 +14,7 @@ import UIKit
 
 protocol MovieListDisplayLogic: class {
     func displayPopularMovies(viewModel: MovieList.PopularMovies.ViewModel)
+    func displayDetail()
 }
 
 final class MovieListViewController: UIViewController, MovieListDisplayLogic {
@@ -25,7 +26,6 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
     var router: (NSObjectProtocol & MovieListRoutingLogic & MovieListDataPassing)?
     var viewModel: MovieList.PopularMovies.ViewModel!
     let sectionInsets = UIEdgeInsets(top: 10.00, left: 10.00, bottom: 10.00, right: 10.00)
-    var itemsPerRow: CGFloat = 2
     
     // MARK: Object lifecycle
     
@@ -72,5 +72,9 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    func displayDetail() {
+        router?.routeToDetail()
     }
 }

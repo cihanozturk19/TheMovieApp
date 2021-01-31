@@ -3,4 +3,70 @@
    uuid = "48EF5009-8385-476D-9172-29E22384A16C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E69F2F8-C0C9-427B-B9AE-F52C6248AC38"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getDetail()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94A3A8AE-1B6E-47AD-881D-77413A3FF916"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "94A3A8AE-1B6E-47AD-881D-77413A3FF916 - f57aba48985ebb1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "694">
+               </Location>
+               <Location
+                  uuid = "94A3A8AE-1B6E-47AD-881D-77413A3FF916 - 835ae41783867328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "149">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -23,7 +23,7 @@ enum MovieDetail
     struct Response: Codable {
         let adult : Bool?
         let backdrop_path : String?
-        let belongs_to_collection : String?
+        let belongs_to_collection : BelongsToCollection?
         let budget : Int?
         let genres : [Genres]?
         let homepage : String?
@@ -53,6 +53,13 @@ enum MovieDetail
         let name : String?
     }
     
+    struct BelongsToCollection : Codable {
+        let id : Int?
+        let name : String?
+        let poster_path : String?
+        let backdrop_path : String?
+    }
+
     struct ProductionCompanies : Codable {
         let id : Int?
         let logo_path : String?
@@ -72,5 +79,14 @@ enum MovieDetail
     }
     
     struct ViewModel{
+        let backDropPath : String?
+        let title: String?
+        let overView: String?
+        
+        init(backDropPath: String?, title: String?, overView: String?) {
+            self.backDropPath = "https://image.tmdb.org/t/p/w400" + (backDropPath ?? "")
+            self.title = title
+            self.overView = overView
+        }
     }
 }

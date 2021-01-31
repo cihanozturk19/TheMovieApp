@@ -20,7 +20,9 @@ final class MovieDetailPresenter: MovieDetailPresentationLogic {
     weak var viewController: MovieDetailDisplayLogic?
         
     func presentDetail(response: MovieDetail.Response) {
-        let viewModel = MovieDetail.ViewModel()
+        let viewModel = MovieDetail.ViewModel(backDropPath: response.backdrop_path,
+                                              title: response.title,
+                                              overView: response.overview)
         viewController?.displayDetail(viewModel: viewModel)
     }
 }

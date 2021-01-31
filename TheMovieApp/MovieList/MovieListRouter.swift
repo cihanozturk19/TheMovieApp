@@ -28,7 +28,7 @@ class MovieListRouter: NSObject, MovieListRoutingLogic, MovieListDataPassing {
     
     func routeToDetail() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(withIdentifier: "MoviewDetailViewController") as! MoviewDetailViewController
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
         var destinationDS = destinationVC.router!.dataStore!
         passDataToSomewhere(source: dataStore!, destination: &destinationDS)
         navigateToSomewhere(source: viewController!, destination: destinationVC)
@@ -36,13 +36,13 @@ class MovieListRouter: NSObject, MovieListRoutingLogic, MovieListDataPassing {
     
     // MARK: Navigation
     
-    func navigateToSomewhere(source: MovieListViewController, destination: MoviewDetailViewController) {
-      source.show(destination, sender: nil)
+    func navigateToSomewhere(source: MovieListViewController, destination: MovieDetailViewController) {
+        source.show(destination, sender: nil)
     }
     
     // MARK: Passing data
     
-    func passDataToSomewhere(source: MovieListDataStore, destination: inout MoviewDetailDataStore) {
-     
+    func passDataToSomewhere(source: MovieListDataStore, destination: inout MovieDetailDataStore) {
+        destination.movieID = source.movieID
     }
 }

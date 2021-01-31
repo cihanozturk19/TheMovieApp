@@ -18,8 +18,11 @@ protocol MovieDetailDisplayLogic: class{
 
 final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic {
     
-    var interactor: MoviewDetailBusinessLogic?
+    @IBOutlet weak var tableView: UITableView!
+    
+    var interactor: MovieDetailBusinessLogic?
     var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
+    var viewModel: MovieDetail.ViewModel!
     
     // MARK: Object lifecycle
     
@@ -52,12 +55,16 @@ final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
         interactor?.getDetail()
     }
     
     // MARK: Display
     
     func displayDetail(viewModel: MovieDetail.ViewModel) {
-        
+        self.viewModel = viewModel
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

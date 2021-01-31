@@ -12,7 +12,7 @@ import UIKit
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        interactor?.didSelectItem(indexPath: indexPath)
     }
 }
 

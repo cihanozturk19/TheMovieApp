@@ -14,6 +14,7 @@ import UIKit
 
 protocol MovieListPresentationLogic {
     func presentPopularMovies(response: MovieList.PopularMovies.Response)
+    func presentDetail()
 }
 
 final class MovieListPresenter: MovieListPresentationLogic {
@@ -24,5 +25,9 @@ final class MovieListPresenter: MovieListPresentationLogic {
                                                           results: response.results,
                                                           total_pages: response.total_pages)
         viewController?.displayPopularMovies(viewModel: viewModel)
+    }
+    
+    func presentDetail() {
+        viewController?.displayDetail()
     }
 }
