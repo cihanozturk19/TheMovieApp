@@ -24,32 +24,40 @@ enum MovieList {
         
         struct Response : Codable {
             let page : Int?
-            let results : [Results]?
+            var results : [Results]?
             let total_pages : Int?
             let total_results : Int?
         }
         
         struct Results : Codable {
-            let adult : Bool?
-            let backdrop_path : String?
-            let genre_ids : [Int]?
             let id : Int?
-            let original_language : String?
-            let original_title : String?
-            let overview : String?
-            let popularity : Double?
-            let poster_path : String?
-            let release_date : String?
+            let posterPath : String?
             let title : String?
-            let video : Bool?
-            let vote_average : Double?
-            let vote_count : Int?
+            let voteCount : Int?
+            var isFavorite: Bool = false
+            
+            private enum CodingKeys: String, CodingKey {
+                case id
+                case title
+                case voteCount = "vote_count"
+                case posterPath = "poster_path"
+            }
+            
+            init() {
+                self.id = 0
+                self.title = ""
+                self.voteCount = 0
+                self.posterPath = ""
+                self.isFavorite = false
+            }
         }
+        
         
         struct ViewModel {
             let page : Int?
             let results : [Results]?
             let total_pages : Int?
+            let favoriteMoviesID: [Int] = DataPersistence.fetchFavorites()
         }
     }
 }

@@ -14,15 +14,19 @@ import UIKit
 
 protocol MovieDetailBusinessLogic {
     func getDetail()
+    func favoriteStatus()
+    func changeFavoriteStatus()
 }
 
 protocol MovieDetailDataStore {
     var movieID: String? { get set }
+    var selectedMovie: MovieList.PopularMovies.Results? { get set }
 }
 
 final class MovieDetailInteractor: MovieDetailBusinessLogic, MovieDetailDataStore {
     var presenter: MovieDetailPresentationLogic?
     var movieID: String?
+    var selectedMovie: MovieList.PopularMovies.Results?
     
     func getDetail() {
         let request = MovieDetail.Request(requestURL:
@@ -39,6 +43,23 @@ final class MovieDetailInteractor: MovieDetailBusinessLogic, MovieDetailDataStor
                 print("the error \(error)")
             }
         }
-        
     }
+    
+    func favoriteStatus() {
+        selectedMovie?.isFavorite.toggle()
+        changeFavoriteStatus()
+    }
+    
+    func changeFavoriteStatus() {
+        guard let movie = selectedMovie else {
+            return
+        }
+        if movie.isFavorite {
+            DataPersistence.addFavorite(moveId: movie.id!)
+        } else {
+            DataPersistence.removeFavorite(moveId: movie.id!)
+        }
+        presenter?.presentFavoriteButton(isFavorite: movie.isFavorite)
+    }
+    
 }

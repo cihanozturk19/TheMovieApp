@@ -15,7 +15,14 @@ import UIKit
 enum MovieDetail
 {
     // MARK: Use cases
-    
+    enum BarButtonImage: String {
+        case favorite = "stared"
+        case notFavorite = "star"
+        
+        var image: String {
+            return self.rawValue
+        }
+    }
     struct Request: BaseRequest {
         var requestURL: String
     }

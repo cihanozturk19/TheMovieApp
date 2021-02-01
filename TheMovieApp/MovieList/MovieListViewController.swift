@@ -13,20 +13,21 @@
 import UIKit
 
 protocol MovieListDisplayLogic: class {
-    func displayPopularMovies(viewModel: MovieList.PopularMovies.ViewModel)
+    func displayMovies(viewModel: MovieList.PopularMovies.ViewModel)
     func displayDetail()
 }
 
 final class MovieListViewController: UIViewController, MovieListDisplayLogic {
    
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var interactor: MovieListBusinessLogic?
     var router: (NSObjectProtocol & MovieListRoutingLogic & MovieListDataPassing)?
     var viewModel: MovieList.PopularMovies.ViewModel!
     let sectionInsets = UIEdgeInsets(top: 10.00, left: 10.00, bottom: 10.00, right: 10.00)
-    
+    private var duration = 0.2
+
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -58,19 +59,32 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customizeNavigationBar()
         initCollectonView()
         interactor?.getPopularMovies(page: "1")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
+    }
+    
+    func customizeNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     func initCollectonView() {
         collectionView.register(cell: MovieListViewCell.self)
     }
+    
     // MARK: Display
     
-    func displayPopularMovies(viewModel: MovieList.PopularMovies.ViewModel) {
+    func displayMovies(viewModel: MovieList.PopularMovies.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            UIView.transition(with: self.collectionView, duration: self.duration, options: .transitionCrossDissolve, animations: { self.collectionView.reloadData()
+            })
         }
     }
     

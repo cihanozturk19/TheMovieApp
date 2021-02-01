@@ -14,6 +14,7 @@ import UIKit
 
 protocol MovieDetailDisplayLogic: class{
     func displayDetail(viewModel: MovieDetail.ViewModel)
+    func displayFavoriteButton(isFavorite: Bool)
 }
 
 final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic {
@@ -23,6 +24,7 @@ final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic
     var interactor: MovieDetailBusinessLogic?
     var router: (NSObjectProtocol & MovieDetailRoutingLogic & MovieDetailDataPassing)?
     var viewModel: MovieDetail.ViewModel!
+    let barButton = BarButton()
     
     // MARK: Object lifecycle
     
@@ -56,9 +58,22 @@ final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
+        initBarButton()
         interactor?.getDetail()
+        interactor?.changeFavoriteStatus()        
     }
     
+    // MARK: UI
+    
+    func initBarButton() {
+        barButton.addTarget(self, action: #selector(tappedFavorite), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = barButton.barButtonItem
+    }
+    
+    @objc func tappedFavorite() {
+        interactor?.favoriteStatus()
+    }
+
     // MARK: Display
     
     func displayDetail(viewModel: MovieDetail.ViewModel) {
@@ -66,5 +81,16 @@ final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func displayFavoriteButton(isFavorite: Bool) {
+        var image: UIImage?
+        
+        if isFavorite {
+            image = UIImage(named: MovieDetail.BarButtonImage.favorite.image)
+        } else {
+            image = UIImage(named: MovieDetail.BarButtonImage.notFavorite.image)
+        }
+        barButton.setImage(image, for: .normal)
     }
 }

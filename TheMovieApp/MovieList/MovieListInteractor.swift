@@ -14,17 +14,23 @@ import UIKit
 
 protocol MovieListBusinessLogic {
     func getPopularMovies(page: String)
-    func didSelectItem(indexPath: IndexPath)
+    func getMovies()
+    func didSelectItem(item: MovieList.PopularMovies.Results)
+    func filterMovies(searchText: String)
+    func resetFilter()
 }
 
 protocol MovieListDataStore {
     var movieID: String? { get set }
+    var selectedMovie: MovieList.PopularMovies.Results? { get set }
 }
 
 final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     var presenter: MovieListPresentationLogic?
     var response: MovieList.PopularMovies.Response?
+    var filterResponse: MovieList.PopularMovies.Response?
     var movieID: String?
+    var selectedMovie: MovieList.PopularMovies.Results?
 
     func getPopularMovies(page: String) {
         
@@ -34,24 +40,35 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
             switch result {
             case .success(let response):
                 self.response = response
-                self.presenter?.presentPopularMovies(response: response)
-                print(response)
-                print("totalPages:",response.total_pages ?? "nil")
+                self.filterResponse = response
+                self.presenter?.presentMovies(response: response)
             case .failure(let error):
-                print("the error \(error)")
+                debugPrint("Error \(error)")
             }
         }
     }
     
-    func didSelectItem(indexPath: IndexPath) {
-        guard let results = response?.results else {
-            return
-        }
-        let item = results[indexPath.row]
-        
+    func getMovies() {
+        self.presenter?.presentMovies(response: response!)
+    }
+    
+    func didSelectItem(item: MovieList.PopularMovies.Results) {
+                
         if let movieID = item.id{
             self.movieID = String(movieID)
+            self.selectedMovie = item
         }
         presenter?.presentDetail()
+    }
+    
+    func filterMovies(searchText: String) {
+        filterResponse?.results = response?.results?.filter({ $0.title?.range(of: searchText,
+                                                                             options: [.caseInsensitive, .anchored]) != nil })
+        presenter?.presentMovies(response: filterResponse!)
+    }
+    
+    func resetFilter() {
+        filterResponse = response
+        presenter?.presentMovies(response: filterResponse!)
     }
 }

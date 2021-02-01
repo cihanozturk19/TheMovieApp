@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1319AB9725C8816A0006EC0B /* MovieListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319AB9625C8816A0006EC0B /* MovieListViewController+SearchBar.swift */; };
+		1319AB9A25C88C140006EC0B /* BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319AB9925C88C140006EC0B /* BarButton.swift */; };
+		1319AB9E25C89F1A0006EC0B /* Favorites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1319AB9C25C89F1A0006EC0B /* Favorites.xcdatamodeld */; };
+		1319ABA025C89F8F0006EC0B /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1319AB9F25C89F8F0006EC0B /* DataPersistence.swift */; };
 		136FDEE425C5CEB20011561D /* RequestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FDEE325C5CEB20011561D /* RequestURL.swift */; };
 		136FDEE725C601AA0011561D /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FDEE625C601AA0011561D /* MovieListView.swift */; };
 		136FDEEA25C601D20011561D /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136FDEE925C601D20011561D /* MovieListViewModel.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1319AB9625C8816A0006EC0B /* MovieListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieListViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		1319AB9925C88C140006EC0B /* BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButton.swift; sourceTree = "<group>"; };
+		1319AB9D25C89F1A0006EC0B /* Favorites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorites.xcdatamodel; sourceTree = "<group>"; };
+		1319AB9F25C89F8F0006EC0B /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		136FDEE325C5CEB20011561D /* RequestURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestURL.swift; sourceTree = "<group>"; };
 		136FDEE625C601AA0011561D /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		136FDEE925C601D20011561D /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +112,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1319AB9825C88BDF0006EC0B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				1319AB9925C88C140006EC0B /* BarButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		1319AB9B25C89EF40006EC0B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1319AB9C25C89F1A0006EC0B /* Favorites.xcdatamodeld */,
+				1319AB9F25C89F8F0006EC0B /* DataPersistence.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		136FDEE225C5CE910011561D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +143,7 @@
 		136FDEE525C6017C0011561D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1319AB9825C88BDF0006EC0B /* Button */,
 				13CDA1FD25C76231007B121C /* MovieDetailView */,
 				13CDA1F125C6C063007B121C /* BaseView */,
 				136FDEE825C601BE0011561D /* MovieListView */,
@@ -158,6 +184,7 @@
 		13CB8F4C25C35FBA00B49B61 /* TheMovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				1319AB9B25C89EF40006EC0B /* Data */,
 				136FDEE525C6017C0011561D /* Components */,
 				136FDEE225C5CE910011561D /* Utility */,
 				13CB8F7C25C3601400B49B61 /* MovieDetail */,
@@ -187,6 +214,7 @@
 			children = (
 				13CB8F7425C3600300B49B61 /* MovieListViewController.swift */,
 				13CDA1F925C6D427007B121C /* MovieListViewController+CollectionView.swift */,
+				1319AB9625C8816A0006EC0B /* MovieListViewController+SearchBar.swift */,
 				13CB8F7525C3600300B49B61 /* MovieListInteractor.swift */,
 				13CB8F7025C3600300B49B61 /* MovieListPresenter.swift */,
 				13CB8F7225C3600300B49B61 /* MovieListRouter.swift */,
@@ -330,6 +358,7 @@
 				13CB8F8625C3602D00B49B61 /* MovieDetailModels.swift in Sources */,
 				13CDA1FA25C6D427007B121C /* MovieListViewController+CollectionView.swift in Sources */,
 				13CB8F7B25C3600300B49B61 /* MovieListInteractor.swift in Sources */,
+				1319ABA025C89F8F0006EC0B /* DataPersistence.swift in Sources */,
 				13CDA20525C76723007B121C /* ReuseIdentifying.swift in Sources */,
 				13CB8F7825C3600300B49B61 /* MovieListRouter.swift in Sources */,
 				136FDEE725C601AA0011561D /* MovieListView.swift in Sources */,
@@ -345,12 +374,15 @@
 				13CB8F8725C3602D00B49B61 /* MovieDetailViewController.swift in Sources */,
 				13CB8F7A25C3600300B49B61 /* MovieListViewController.swift in Sources */,
 				13CDA20325C764D9007B121C /* UITableView+Extension.swift in Sources */,
+				1319AB9E25C89F1A0006EC0B /* Favorites.xcdatamodeld in Sources */,
 				13CB8F8A25C3700A00B49B61 /* ServiceAPI.swift in Sources */,
 				13CB8F5025C35FBA00B49B61 /* SceneDelegate.swift in Sources */,
 				13CB8F7925C3600300B49B61 /* MovieListModels.swift in Sources */,
+				1319AB9A25C88C140006EC0B /* BarButton.swift in Sources */,
 				13CDA1F325C6C100007B121C /* BaseView.swift in Sources */,
 				13CB8F7625C3600300B49B61 /* MovieListPresenter.swift in Sources */,
 				136FDEEA25C601D20011561D /* MovieListViewModel.swift in Sources */,
+				1319AB9725C8816A0006EC0B /* MovieListViewController+SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +649,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1319AB9C25C89F1A0006EC0B /* Favorites.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1319AB9D25C89F1A0006EC0B /* Favorites.xcdatamodel */,
+			);
+			currentVersion = 1319AB9D25C89F1A0006EC0B /* Favorites.xcdatamodel */;
+			path = Favorites.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 13CB8F4225C35FBA00B49B61 /* Project object */;
 }

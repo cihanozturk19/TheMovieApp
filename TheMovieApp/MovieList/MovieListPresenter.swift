@@ -13,18 +13,18 @@
 import UIKit
 
 protocol MovieListPresentationLogic {
-    func presentPopularMovies(response: MovieList.PopularMovies.Response)
+    func presentMovies(response: MovieList.PopularMovies.Response)
     func presentDetail()
 }
 
 final class MovieListPresenter: MovieListPresentationLogic {
     weak var viewController: MovieListDisplayLogic?
     
-    func presentPopularMovies(response: MovieList.PopularMovies.Response) {
+    func presentMovies(response: MovieList.PopularMovies.Response) {
         let viewModel = MovieList.PopularMovies.ViewModel(page: response.page,
                                                           results: response.results,
                                                           total_pages: response.total_pages)
-        viewController?.displayPopularMovies(viewModel: viewModel)
+        viewController?.displayMovies(viewModel: viewModel)
     }
     
     func presentDetail() {

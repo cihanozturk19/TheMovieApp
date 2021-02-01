@@ -14,6 +14,7 @@ import UIKit
 
 protocol MovieDetailPresentationLogic {
     func presentDetail(response: MovieDetail.Response)
+    func presentFavoriteButton(isFavorite: Bool)
 }
 
 final class MovieDetailPresenter: MovieDetailPresentationLogic {
@@ -24,5 +25,9 @@ final class MovieDetailPresenter: MovieDetailPresentationLogic {
                                               title: response.title,
                                               overView: response.overview)
         viewController?.displayDetail(viewModel: viewModel)
+    }
+    
+    func presentFavoriteButton(isFavorite: Bool) {
+        viewController?.displayFavoriteButton(isFavorite: isFavorite)
     }
 }

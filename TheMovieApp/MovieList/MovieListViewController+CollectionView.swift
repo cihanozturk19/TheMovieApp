@@ -12,7 +12,10 @@ import UIKit
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        interactor?.didSelectItem(indexPath: indexPath)
+        var item: MovieList.PopularMovies.Results = (viewModel?.results![indexPath.row])!
+        item.isFavorite = viewModel.favoriteMoviesID.contains(item.id!)
+        print("item favor",item.isFavorite)
+        interactor?.didSelectItem(item: item)
     }
 }
 
@@ -32,9 +35,10 @@ extension MovieListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let item: MovieList.PopularMovies.Results = results[indexPath.row]
+        var item: MovieList.PopularMovies.Results = results[indexPath.row]
+        item.isFavorite = viewModel.favoriteMoviesID.contains(item.id!)
         let cell: MovieListViewCell = collectionView.deque(indexPath: indexPath)
-        cell.moviewListViewModel = MovieListViewModel(imageURL: item.poster_path, title: item.title, isHiddenFavIcon: true)
+        cell.moviewListViewModel = MovieListViewModel(imageURL: item.posterPath, title: item.title, isHiddenFavIcon: !item.isFavorite)
         return cell
     }
     
