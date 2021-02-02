@@ -13,6 +13,7 @@
 import UIKit
 
 @objc protocol MovieDetailRoutingLogic {
+    func routeToBack()
 }
 
 protocol MovieDetailDataPassing {
@@ -23,4 +24,29 @@ final class MovieDetailRouter: NSObject, MovieDetailRoutingLogic, MovieDetailDat
     weak var viewController: MovieDetailViewController?
     var dataStore: MovieDetailDataStore?
     
+    func routeToBack() {
+        passDataToPreviousViewController()
+        navigateToBack()
+    }
+    
+    func passDataToPreviousViewController() {
+        if let destinationVC = previousViewController(), let sourceDataStore = dataStore {
+            
+            var destinationDS = destinationVC.router?.dataStore!
+            destinationDS?.selectedMovie = sourceDataStore.selectedMovie
+            destinationVC.reloadData()
+        }
+    }
+    
+    func navigateToBack() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func previousViewController() -> MovieListViewController? {
+        
+        if let viewControllers = viewController?.navigationController?.viewControllers, viewControllers.count > 1 {
+            return viewControllers[viewControllers.count - 2] as? MovieListViewController
+        }
+        return nil
+    }
 }

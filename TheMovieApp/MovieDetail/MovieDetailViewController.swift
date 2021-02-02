@@ -59,15 +59,27 @@ final class MovieDetailViewController: UIViewController, MovieDetailDisplayLogic
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         initBarButton()
+        customBackButton()
         interactor?.getDetail()
         interactor?.changeFavoriteStatus()        
     }
     
     // MARK: UI
     
+    func customBackButton() {
+        navigationItem.hidesBackButton = true
+        let image = UIImage(named: "backIcon")
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonAction))
+        navigationItem.leftBarButtonItem = button
+    }
+    
     func initBarButton() {
         barButton.addTarget(self, action: #selector(tappedFavorite), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = barButton.barButtonItem
+    }
+    
+    @objc func backButtonAction() {
+        router?.routeToBack()
     }
     
     @objc func tappedFavorite() {

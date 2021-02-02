@@ -42,6 +42,14 @@ extension MovieListViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1,
+            collectionView.visibleSize.height < collectionView.contentSize.height {
+            interactor?.loadMore(indexPath: indexPath)
+        }
+    }
+    
 }
 
 extension MovieListViewController : UICollectionViewDelegateFlowLayout {

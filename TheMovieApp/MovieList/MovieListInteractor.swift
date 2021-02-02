@@ -18,6 +18,8 @@ protocol MovieListBusinessLogic {
     func didSelectItem(item: MovieList.PopularMovies.Results)
     func filterMovies(searchText: String)
     func resetFilter()
+    func reloadData()
+    func loadMore(indexPath: IndexPath)
 }
 
 protocol MovieListDataStore {
@@ -31,7 +33,8 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     var filterResponse: MovieList.PopularMovies.Response?
     var movieID: String?
     var selectedMovie: MovieList.PopularMovies.Results?
-
+    var page: Int = 1
+    
     func getPopularMovies(page: String) {
         
         let request = MovieList.PopularMovies.Request(requestURL: RequestURL.MovieList.popularMovies.url + page)
@@ -39,9 +42,17 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
             
             switch result {
             case .success(let response):
-                self.response = response
-                self.filterResponse = response
-                self.presenter?.presentMovies(response: response)
+                self.page = self.page + 1
+                
+                if page == "1" {
+                    self.response = response
+                    self.filterResponse = response
+                } else {
+                    self.response?.results?.append(contentsOf: response.results!)
+                    self.filterResponse?.results?.append(contentsOf: response.results!)
+                }
+                
+                self.presenter?.presentMovies(response: self.filterResponse!)
             case .failure(let error):
                 debugPrint("Error \(error)")
             }
@@ -70,5 +81,27 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     func resetFilter() {
         filterResponse = response
         presenter?.presentMovies(response: filterResponse!)
+    }
+    
+    func reloadData() {
+        
+        for index in 0..<(filterResponse?.results)!.count {
+            if filterResponse?.results![index].id == selectedMovie?.id {
+                filterResponse?.results![index].isFavorite = selectedMovie!.isFavorite
+            }
+        }
+        presenter?.presentMovies(response: filterResponse!)
+    }
+    
+    func loadMore(indexPath: IndexPath) {
+        guard let movies = filterResponse?.results, let totalPages = filterResponse?.total_pages else {
+            return
+        }
+        let lastItem = movies.count - 1
+        
+        if indexPath.row == lastItem, page < totalPages {
+            
+            getPopularMovies(page: String(page))
+        }
     }
 }

@@ -77,6 +77,9 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
         collectionView.register(cell: MovieListViewCell.self)
     }
     
+    func reloadData() {
+        interactor?.reloadData()
+    }
     // MARK: Display
     
     func displayMovies(viewModel: MovieList.PopularMovies.ViewModel) {
