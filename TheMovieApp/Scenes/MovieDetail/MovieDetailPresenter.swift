@@ -21,9 +21,11 @@ final class MovieDetailPresenter: MovieDetailPresentationLogic {
     weak var viewController: MovieDetailDisplayLogic?
         
     func presentDetail(response: MovieDetail.Response) {
+        let voteCount = response.vote_count == nil ? "" : String(response.vote_count!)
         let viewModel = MovieDetail.ViewModel(backDropPath: response.backdrop_path,
                                               title: response.title,
-                                              overView: response.overview)
+                                              overView: response.overview,
+                                              voteCount: voteCount)
         viewController?.displayDetail(viewModel: viewModel)
     }
     

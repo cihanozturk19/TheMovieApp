@@ -19,8 +19,8 @@ protocol MovieListDisplayLogic: class {
 
 final class MovieListViewController: UIViewController, MovieListDisplayLogic {
    
-    @IBOutlet private weak var searchBar: UISearchBar!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private(set) weak var searchBar: UISearchBar!
+    @IBOutlet private(set) weak var collectionView: UICollectionView!
     
     var interactor: MovieListBusinessLogic?
     var router: (NSObjectProtocol & MovieListRoutingLogic & MovieListDataPassing)?
@@ -66,7 +66,6 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView.reloadData()
     }
     
     func customizeNavigationBar() {
@@ -85,10 +84,11 @@ final class MovieListViewController: UIViewController, MovieListDisplayLogic {
     func displayMovies(viewModel: MovieList.PopularMovies.ViewModel) {
         self.viewModel = viewModel
         DispatchQueue.main.async {
+//            UIView.transition(with: self.collectionView, duration: self.duration, options: .transitionCrossDissolve, animations: { self.collectionView.reloadData()
+//            })
             self.collectionView.reloadData()
-            UIView.transition(with: self.collectionView, duration: self.duration, options: .transitionCrossDissolve, animations: { self.collectionView.reloadData()
-            })
         }
+        
     }
     
     func displayDetail() {

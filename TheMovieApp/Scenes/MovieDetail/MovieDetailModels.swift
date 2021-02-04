@@ -89,11 +89,13 @@ enum MovieDetail
         let backDropPath : String?
         let title: String?
         let overView: String?
+        let voteCount: String?
         
-        init(backDropPath: String?, title: String?, overView: String?) {
+        init(backDropPath: String?, title: String?, overView: String?, voteCount: String?) {
             self.backDropPath = "https://image.tmdb.org/t/p/w400" + (backDropPath ?? "")
             self.title = title
             self.overView = overView
+            self.voteCount = voteCount
         }
     }
 }

@@ -25,15 +25,12 @@ class BaseView: UIView {
     
     func setup() {
         view = fromNib()
-        
         view.backgroundColor = .clear
-        //view.frame = bounds
         self.addSubview(view)
         view.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         view.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-
     }
 }
 extension BaseView {

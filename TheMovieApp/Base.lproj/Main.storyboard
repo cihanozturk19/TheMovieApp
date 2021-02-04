@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-fa-qiS">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZeT-fa-qiS">
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J72-aR-OxQ">
@@ -40,7 +40,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fva-Ot-jnf"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="JX8-Ex-YoV">
+                            <searchBar tag="101" contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="JX8-Ex-YoV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4ow-v6-ec1"/>
@@ -116,11 +116,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaW-HF-3Yg">
-                                                    <rect key="frame" x="12" y="12" width="390" height="21"/>
+                                                    <rect key="frame" x="12" y="12" width="343" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="WIc-fn-clJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3315" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsY-nx-VU7">
+                                                    <rect key="frame" x="367" y="12" width="35" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="KL8-nO-F87"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Liw-Tt-dQQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -133,17 +143,20 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="iaW-HF-3Yg" firstAttribute="leading" secondItem="nKY-6p-Tdc" secondAttribute="leading" constant="12" id="0cj-Wy-mG8"/>
+                                                <constraint firstItem="qsY-nx-VU7" firstAttribute="leading" secondItem="iaW-HF-3Yg" secondAttribute="trailing" constant="12" id="Aty-Mx-Yvn"/>
                                                 <constraint firstAttribute="bottom" secondItem="Eki-bA-3HN" secondAttribute="bottom" constant="12" id="IA6-fY-bBs"/>
-                                                <constraint firstAttribute="trailing" secondItem="iaW-HF-3Yg" secondAttribute="trailing" constant="12" id="d3o-iw-Teg"/>
+                                                <constraint firstAttribute="trailing" secondItem="qsY-nx-VU7" secondAttribute="trailing" constant="12" id="Jgz-Sw-bqa"/>
                                                 <constraint firstAttribute="trailing" secondItem="Eki-bA-3HN" secondAttribute="trailing" constant="12" id="e5J-vR-YO9"/>
                                                 <constraint firstItem="Eki-bA-3HN" firstAttribute="top" secondItem="iaW-HF-3Yg" secondAttribute="bottom" constant="8" id="kmC-pn-uJo"/>
                                                 <constraint firstItem="iaW-HF-3Yg" firstAttribute="top" secondItem="nKY-6p-Tdc" secondAttribute="top" constant="12" id="t2A-RX-gwV"/>
                                                 <constraint firstItem="Eki-bA-3HN" firstAttribute="leading" secondItem="nKY-6p-Tdc" secondAttribute="leading" constant="12" id="ulx-RH-zEf"/>
+                                                <constraint firstItem="qsY-nx-VU7" firstAttribute="top" secondItem="nKY-6p-Tdc" secondAttribute="top" constant="12" id="xMM-gf-7yw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="Eki-bA-3HN" id="4Tg-MO-RbT"/>
                                             <outlet property="headerLabel" destination="iaW-HF-3Yg" id="gc3-Tm-mRe"/>
+                                            <outlet property="voteCountLabel" destination="qsY-nx-VU7" id="nsp-qS-v7W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

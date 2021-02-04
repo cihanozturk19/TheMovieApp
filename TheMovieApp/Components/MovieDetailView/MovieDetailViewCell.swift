@@ -10,16 +10,13 @@ import Foundation
 import UIKit
 
 class MovieDetailImageViewCell: UITableViewCell, ReuseIdentifying {
-    @IBOutlet private weak var posterImageView: UIImageView?
+    
+    @IBOutlet private weak var posterImageView: CustomImageView?
     
     var viewModel:MovieDetail.ViewModel? {
         didSet {
             if let viewModel = viewModel {
-                posterImageView?.loadImageWithURL(imageURL: viewModel.backDropPath ?? "", placeHolderImageName: nil, completion: { (status, img) in
-                    DispatchQueue.main.async {
-                        self.posterImageView?.image = img
-                    }
-                })
+                posterImageView?.loadImageWithUrl(viewModel.backDropPath ?? "")
             }
         }
     }
@@ -31,12 +28,14 @@ class MovieDetailImageViewCell: UITableViewCell, ReuseIdentifying {
 class MovieDetailViewCell: UITableViewCell, ReuseIdentifying {
     @IBOutlet private weak var headerLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
+    @IBOutlet private weak var voteCountLabel: UILabel!
     
     var viewModel:MovieDetail.ViewModel? {
         didSet {
             if let viewModel = viewModel {
                 headerLabel?.text = viewModel.title
                 descriptionLabel?.text = viewModel.overView
+                voteCountLabel.text = viewModel.voteCount
             }
         }
     }

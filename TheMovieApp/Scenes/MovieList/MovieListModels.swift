@@ -30,9 +30,9 @@ enum MovieList {
         }
         
         struct Results : Codable {
-            let id : Int?
+            var id : Int?
             let posterPath : String?
-            let title : String?
+            var title : String?
             let voteCount : Int?
             var isFavorite: Bool = false
             

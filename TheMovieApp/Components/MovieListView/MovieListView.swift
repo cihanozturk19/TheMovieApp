@@ -11,7 +11,7 @@ import UIKit
 
 class MovieListView: BaseView {
     
-    @IBOutlet private weak var movieImage: UIImageView!
+    @IBOutlet private weak var movieImage: CustomImageView!
     @IBOutlet private weak var movieFavorite: UIImageView!
     @IBOutlet private weak var movieTitle: UILabel!
     
@@ -25,39 +25,8 @@ class MovieListView: BaseView {
     }
     
     func initView(viewModel: MovieListViewModel) {
-        self.movieImage.loadImageWithURL(imageURL: viewModel.imageURL ?? "" , placeHolderImageName: nil) { (status, image) in
-            if let img = image, status {
-                DispatchQueue.main.async {
-                    self.movieImage.image = img
-                }
-            }
-        }
+        self.movieImage.loadImageWithUrl(viewModel.imageURL ?? "")
         self.movieFavorite.isHidden = viewModel.isHiddenFavIcon 
         self.movieTitle.text = viewModel.title
-    }
-}
-
-extension UIImageView {
-        
-    func loadImageWithURL(imageURL: String, placeHolderImageName: String?, completion: ((Bool, UIImage?) -> Void)? = nil) {
-        
-        if let placeHolder = placeHolderImageName {
-            self.image = UIImage(named: placeHolder)
-        }
-        
-        guard let url = URL(string: imageURL) else {
-            completion?(false,nil)
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            if error == nil, let imageData = data, let image = UIImage(data: imageData) {
-                completion?(true, image)
-            } else {
-                completion?(false, nil)
-            }
-        }
-        task.resume()
     }
 }

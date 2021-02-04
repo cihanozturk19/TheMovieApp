@@ -14,7 +14,6 @@ import UIKit
 
 protocol MovieListBusinessLogic {
     func getPopularMovies(page: String)
-    func getMovies()
     func didSelectItem(item: MovieList.PopularMovies.Results)
     func filterMovies(searchText: String)
     func resetFilter()
@@ -34,7 +33,9 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     var movieID: String?
     var selectedMovie: MovieList.PopularMovies.Results?
     var page: Int = 1
-    
+    var isSearch = false
+    var isWaiting = false
+
     func getPopularMovies(page: String) {
         
         let request = MovieList.PopularMovies.Request(requestURL: RequestURL.MovieList.popularMovies.url + page)
@@ -42,8 +43,7 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
             
             switch result {
             case .success(let response):
-                self.page = self.page + 1
-                
+                                
                 if page == "1" {
                     self.response = response
                     self.filterResponse = response
@@ -51,7 +51,7 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
                     self.response?.results?.append(contentsOf: response.results!)
                     self.filterResponse?.results?.append(contentsOf: response.results!)
                 }
-                
+                self.isWaiting = false
                 self.presenter?.presentMovies(response: self.filterResponse!)
             case .failure(let error):
                 debugPrint("Error \(error)")
@@ -73,12 +73,14 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
     }
     
     func filterMovies(searchText: String) {
+        isSearch = true
         filterResponse?.results = response?.results?.filter({ $0.title?.range(of: searchText,
                                                                              options: [.caseInsensitive, .anchored]) != nil })
         presenter?.presentMovies(response: filterResponse!)
     }
     
     func resetFilter() {
+        isSearch = false
         filterResponse = response
         presenter?.presentMovies(response: filterResponse!)
     }
@@ -99,8 +101,9 @@ final class MovieListInteractor: MovieListBusinessLogic, MovieListDataStore {
         }
         let lastItem = movies.count - 1
         
-        if indexPath.row == lastItem, page < totalPages {
-            
+        if indexPath.row == lastItem, page < totalPages, !isSearch, !isWaiting {
+            page = page + 1
+            isWaiting = true
             getPopularMovies(page: String(page))
         }
     }

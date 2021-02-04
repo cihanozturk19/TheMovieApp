@@ -24,27 +24,14 @@ final class ServiceAPI: NSObject {
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
-
+            
             guard let data = data else {
                 completion(.failure(error!))
                 return
             }
-            do {
-                if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
-                           
-                           // Print out entire dictionary
-                           print("convertedJsonIntoDict",convertedJsonIntoDict)
-                           
-                           // Get value by key
-                           let userId = convertedJsonIntoDict["userId"]
-                           print(userId ?? "userId could not be read")
-                           
-                       }
-            } catch let error as NSError {
-                       print(error.localizedDescription)
-            }
-                let result = Result {
-                // You know you can call `decode` with it because it's Decodable
+            debugPrint("convertedJsonIntoDict",self.convertJsonDataToDict(data: data) ?? "nil")
+
+            let result = Result {
                 try JSONDecoder().decode(T.self, from: data)
             }
             completion(result)
@@ -52,34 +39,21 @@ final class ServiceAPI: NSObject {
         task.resume()
     }
     
-    
-//    func parseJSON<T>(data: Data) -> Codable {
-//
-//        var returnValue: Codable?
-//        do {
-//            returnValue = try JSONDecoder().decode(UserResponseModel.self, from: data)
-//        } catch {
-//            print("Error took place\(error.localizedDescription).")
-//        }
-//
-//        return returnValue
-//    }
+    func convertJsonDataToDict(data: Data?) -> NSDictionary? {
+        
+        guard let data = data else {
+            return nil
+        }
+        do {
+            if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
+                return convertedJsonIntoDict
+            }
+        } catch let error as NSError {
+            debugPrint(error.localizedDescription)
+        }
+        return nil
+    }
 }
 
 
 
-/*
- do {
-           if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                
-                // Print out entire dictionary
-                print("convertedJsonIntoDict",convertedJsonIntoDict)
-                
-                // Get value by key
-                let userId = convertedJsonIntoDict["userId"]
-                print(userId ?? "userId could not be read")
-                
-            }
- } catch let error as NSError {
-            print(error.localizedDescription)
-  }*/

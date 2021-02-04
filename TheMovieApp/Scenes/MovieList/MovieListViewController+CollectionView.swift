@@ -43,16 +43,19 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-
-        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1,
-            collectionView.visibleSize.height < collectionView.contentSize.height {
-            interactor?.loadMore(indexPath: indexPath)
-        }
+        interactor?.loadMore(indexPath: indexPath)
     }
     
 }
 
 extension MovieListViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 150, height: 225)
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
