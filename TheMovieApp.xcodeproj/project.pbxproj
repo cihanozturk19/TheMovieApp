@@ -141,6 +141,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		1348ADBA25CD443E000157A6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				13CB8F8925C3700A00B49B61 /* ServiceAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		136FDEE225C5CE910011561D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,12 +236,12 @@
 			children = (
 				13CB8F4D25C35FBA00B49B61 /* AppDelegate.swift */,
 				13BA118925CCB24000D1FB29 /* SceneDelegate.swift */,
-				13CB8F8925C3700A00B49B61 /* ServiceAPI.swift */,
 				13CB8F5625C35FBB00B49B61 /* Assets.xcassets */,
 				13CB8F5325C35FBA00B49B61 /* Main.storyboard */,
 				13CB8F5825C35FBB00B49B61 /* LaunchScreen.storyboard */,
 				13BA118825CCAD1D00D1FB29 /* Scenes */,
 				1319AB9B25C89EF40006EC0B /* Data */,
+				1348ADBA25CD443E000157A6 /* Network */,
 				136FDEE525C6017C0011561D /* Components */,
 				136FDEE225C5CE910011561D /* Utility */,
 				13CB8F5B25C35FBB00B49B61 /* Info.plist */,

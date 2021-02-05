@@ -43,11 +43,11 @@ final class MovieDetailInteractorTests: XCTestCase {
         var presentFavoriteButtonCalled = false
         
         func presentDetail(response: MovieDetail.Response) {
-            presentDetailCalled = false
+            presentDetailCalled = true
         }
         
         func presentFavoriteButton(isFavorite: Bool) {
-            presentFavoriteButtonCalled = false
+            presentFavoriteButtonCalled = true
         }
         
     }
@@ -58,7 +58,7 @@ final class MovieDetailInteractorTests: XCTestCase {
         // Given
         let spy = MovieDetailPresentationLogicSpy()
         sut.presenter = spy
-        
+        sut.movieID = "461130"
         let predicate = NSPredicate { (any, _) -> Bool in
             guard (any as? MovieDetailPresentationLogicSpy) != nil else {
                 return false

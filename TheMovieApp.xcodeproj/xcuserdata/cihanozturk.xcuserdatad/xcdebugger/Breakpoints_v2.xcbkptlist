@@ -34,38 +34,6 @@
             endingLineNumber = "36"
             landmarkName = "getDetail()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AF2C1CC5-1519-4558-A175-9396AE5F2CE1 - f57aba48985ebb1c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
-                  moduleName = "TheMovieApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "694">
-               </Location>
-               <Location
-                  uuid = "AF2C1CC5-1519-4558-A175-9396AE5F2CE1 - 835ae41783867328"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
-                  moduleName = "TheMovieApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieDetail/MovieDetailInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "149">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,38 +114,6 @@
             endingLineNumber = "90"
             landmarkName = "reloadData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3E771219-D8E5-44EC-94BB-7BCC639567C9 - 691567ad4d4c2eb5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieApp.MovieListInteractor.reloadData() -&gt; ()"
-                  moduleName = "TheMovieApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieList/MovieListInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "130">
-               </Location>
-               <Location
-                  uuid = "3E771219-D8E5-44EC-94BB-7BCC639567C9 - 691567ad4d4c2eb5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieApp.MovieListInteractor.reloadData() -&gt; ()"
-                  moduleName = "TheMovieApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/MovieList/MovieListInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "3069">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -210,6 +146,180 @@
             endingLineNumber = "76"
             landmarkName = "filterMovies(searchText:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D117442B-53FC-4123-8743-F8F6339DB0AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D117442B-53FC-4123-8743-F8F6339DB0AB - 25bf4b5c10e07944"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "694">
+               </Location>
+               <Location
+                  uuid = "D117442B-53FC-4123-8743-F8F6339DB0AB - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "149">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2FCC59D-57CC-4CB4-9F3D-DF7A49DDDF78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E2FCC59D-57CC-4CB4-9F3D-DF7A49DDDF78 - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  uuid = "E2FCC59D-57CC-4CB4-9F3D-DF7A49DDDF78 - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "E2FCC59D-57CC-4CB4-9F3D-DF7A49DDDF78 - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "741">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE5F64CB-7ACC-4374-BC11-B652F452D25C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getDetail()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE5F64CB-7ACC-4374-BC11-B652F452D25C - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  uuid = "BE5F64CB-7ACC-4374-BC11-B652F452D25C - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "BE5F64CB-7ACC-4374-BC11-B652F452D25C - 539f15030b38b170"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieApp.MovieDetail.Response, Swift.Error&gt;) -&gt; () in TheMovieApp.MovieDetailInteractor.getDetail() -&gt; ()"
+                  moduleName = "TheMovieApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cihanozturk/Documents/iOS%20Tutorials/2021/TheMovieApp/TheMovieApp/Scenes/MovieDetail/MovieDetailInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "741">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
